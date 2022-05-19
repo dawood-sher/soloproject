@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float directionalSpeed=20f;
     public AudioClip scoreUP;
     public AudioClip damage;
+    public GameObject otherscript;
    
 
     // Start is called before the first frame update
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "obstacle")
         {
             GetComponent<AudioSource>().PlayOneShot(damage, 1.0f);
+            otherscript.GetComponent<ApplyShader>().GameOver();
         }
     }
 
